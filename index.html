@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracking Intelligence System</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="scripts/main.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        🛰️ <span>Tracking System</span>
+      </div>
+      <nav>
+        <ul>
+          <li data-page="tiempo_real.html" class="active">⏱ Tiempo Real</li>
+          <li data-page="analisis.html">📊 Análisis</li>
+          <li data-page="alertas.html">⚠️ Alertas</li>
+          <li data-page="configuracion.html">⚙️ Configuración</li>
+          <li data-page="about.html">ℹ️ Acerca de</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <header class="top-bar">
+        <button id="menu-toggle">☰</button>
+        <div class="top-bar-right">
+          <button id="theme-toggle">🌙</button>
+        </div>
+      </header>
+
+      <div id="page-container">
+        <div class="loading">Cargando módulo...</div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
