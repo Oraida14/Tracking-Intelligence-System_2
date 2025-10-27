@@ -2,45 +2,24 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tiempo Real - Tracking</title>
+<title>Mapa Test</title>
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
 <style>
-  body, html { margin:0; padding:0; height:100%; font-family: 'Segoe UI', sans-serif; background:#1e1e2f; color:#fff; overflow:hidden;}
-  #container { display:flex; height:100%; width:100%; transition: all 0.3s ease;}
-  #sidebar { width: 250px; background:#2b2b3b; transition: transform 0.3s ease; overflow-y:auto; flex-shrink:0; padding:10px; box-shadow:2px 0 5px rgba(0,0,0,0.5);}
-  #sidebar.hidden { transform:translateX(-260px);}
-  #sidebar h2 { margin-top:0; font-size:1.2rem; text-align:center; border-bottom:1px solid #444; padding-bottom:5px;}
-  #tablet-list-container { margin-top:10px; max-height:400px; overflow:hidden; transition: max-height 0.3s ease; }
-  #tablet-list-container.hidden { max-height:0; padding:0; margin:0; }
-  #tablet-list { list-style:none; padding:0; margin:0; max-height:400px; overflow-y:auto;}
-  #tablet-list li { padding:8px 10px; margin:5px 0; background:#3b3b4b; border-radius:4px; cursor:pointer; transition:0.2s;}
-  #tablet-list li:hover { background:#505060;}
-  #map { flex-grow:1; transition: margin-left 0.3s ease; }
-  #map.shifted { margin-left:250px; }
-  #toggle-sidebar { position:absolute; top:15px; left:15px; z-index:10; padding:8px 12px; background:#3b3b4b; border:none; border-radius:4px; cursor:pointer; color:#fff; font-weight:bold; box-shadow:0 2px 5px rgba(0,0,0,0.3); transition: transform 0.3s; }
-  #toggle-sidebar:hover { background:#505060;}
-  .marker { border:2px solid #fff; box-sizing:border-box; width:14px; height:14px; border-radius:50%; }
-  .pulse { animation: pulse 2s infinite; box-shadow:0 0 0 0 rgba(0,255,0,0.7);}
-  @keyframes pulse { 0% { box-shadow:0 0 0 0 rgba(0,255,0,0.7);} 70% { box-shadow:0 0 0 10px rgba(0,255,0,0);} 100% { box-shadow:0 0 0 0 rgba(0,255,0,0);} }
+html, body { height:100%; margin:0; padding:0; }
+#map { width:100%; height:100%; }
 </style>
 </head>
 <body>
-<div id="container">
-  <div id="sidebar">
-    <h2>Tabletas</h2>
-    <button id="toggle-tablet-list" style="width:100%; margin-bottom:5px; padding:5px; background:#3b3b4b; border:none; color:#fff; cursor:pointer;">Lista Tablet</button>
-    <div id="tablet-list-container">
-      <ul id="tablet-list"></ul>
-    </div>
-  </div>
-  <div id="map"></div>
-</div>
-<button id="toggle-sidebar">☰ Menu</button>
-
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<div id="map"></div>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-<script src="geocode.js"></script>
-<script src="tiempo_real.js"></script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZnJlZGR5ZmllcnJvIiwiYSI6ImNtMzk2eHFtYzExbGcyam9tZG8yN3d2aXQifQ.Yx7HsOnTVplMFrFJXMRYSw';
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/dark-v11',
+  center: [-106.42, 31.62],
+  zoom: 11
+});
+</script>
 </body>
 </html>

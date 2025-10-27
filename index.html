@@ -4,40 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tracking Intelligence System</title>
+  <link rel="icon" type="image/x-icon" href="tio.ico">
+  <!-- Mapbox -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+
+  <!-- Socket.IO desde CDN -->
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <!-- Estilos -->
   <link rel="stylesheet" href="style.css" />
-  <script defer src="scripts/main.js"></script>
+  <!-- Script principal -->
+  <script defer src="scripts/tiempo_real.js"></script>
 </head>
 <body>
   <div class="app-container">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="logo">
-        🛰️ <span>Tracking System</span>
-      </div>
+      <div class="logo">🛰️ <span>Tracking System</span></div>
       <nav>
         <ul>
-          <li data-page="tiempo_real.html" class="active">⏱ Tiempo Real</li>
-          <li data-page="analisis.html">📊 Análisis</li>
-          <li data-page="alertas.html">⚠️ Alertas</li>
-          <li data-page="configuracion.html">⚙️ Configuración</li>
-          <li data-page="about.html">ℹ️ Acerca de</li>
+          <li class="active" data-module="none">⏱ Tiempo Real</li>
+          <li data-module="analisis.html">📊 Análisis</li>
+          <li data-module="alertas.html">⚠️ Alertas</li>
+          <li data-module="configuracion.html">⚙️ Configuración</li>
+          <li data-module="about.html">ℹ️ Acerca de</li>
         </ul>
       </nav>
     </aside>
-
-    <!-- Main Content -->
+    <!-- Contenedor principal con mapa -->
     <main id="main-content">
-      <header class="top-bar">
-        <button id="menu-toggle">☰</button>
-        <div class="top-bar-right">
-          <button id="theme-toggle">🌙</button>
-        </div>
-      </header>
-
-      <div id="page-container">
-        <div class="loading">Cargando módulo...</div>
+      <div id="map"></div>
+      <!-- Panel dinámico para los módulos -->
+      <div id="module-container" class="hidden">
+        <button id="close-module">✖</button>
+        <div id="module-content">Cargando...</div>
       </div>
     </main>
   </div>
+
+  <div id="module-container" class="hidden">
+  <button id="close-module"></button>
+  <div id="module-content">
+    <div id="alerts-module" class="module hidden">
+      <h2>Alertas</h2>
+      <ul id="alerts-list"></ul>
+      <h2>Tabletas Estáticas</h2>
+      <ul id="static-tablets-list"></ul>
+    </div>
+    <!-- Otros módulos -->
+  </div>
+</div>
+
 </body>
 </html>
